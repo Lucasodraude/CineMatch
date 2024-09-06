@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado - CineMatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Seu Resultado🎬</h1>
+        </header>
+
+        <main>
+            <p id="resultado"></p>
+            <button onclick="window.location.href='index.html'">Voltar para a Página Inicial</button>
+        </main>
+
+        <footer>
+            <p>© 2024 CineMatch 🍿  - Todos os direitos reservados.</p>
+        </footer>
+
+        <script>
+            // Carrega o resultado do teste do localStorage
+            const resultadoFilme = localStorage.getItem('resultadoFilme');
+            const resultadoDiv = document.getElementById('resultado');
+
+            // Verifica o filme e cria um link para a página externa (IMDb)
+            if (resultadoFilme) {
+                let filmeLink = '';
+                
+                switch (resultadoFilme) {
+                    case 'Mad Max: Estrada da Fúria':
+                        filmeLink = 'https://www.imdb.com/title/tt1392190/';
+                        break;
+                    case 'As Branquelas':
+                        filmeLink = 'https://www.imdb.com/title/tt0381707/';
+                        break;
+                    case 'O Regresso':
+                        filmeLink = 'https://www.imdb.com/title/tt1663202/';
+                        break;
+                    case 'Interestelar':
+                        filmeLink = 'https://www.imdb.com/title/tt0816692/';
+                        break;
+                    case 'Gladiador':
+                        filmeLink = 'https://www.imdb.com/title/tt0172495/';
+                        break;
+                    case 'Se Beber, Não Case!':
+                        filmeLink = 'https://www.imdb.com/title/tt1119646/';
+                        break;
+                    case 'À Procura da Felicidade':
+                        filmeLink = 'https://www.imdb.com/title/tt0454921/';
+                        break;
+                    case 'Blade Runner 2049':
+                        filmeLink = 'https://www.imdb.com/title/tt1856101/';
+                        break;
+                    case 'Pulp Fiction':
+                        filmeLink = 'https://www.imdb.com/title/tt0110912/';
+                        break;
+                    default:
+                        filmeLink = '#';
+                        break;
+                }
+
+                resultadoDiv.innerHTML = `Você estaria no filme: <a href="${filmeLink}" target="_blank">${resultadoFilme}</a>`;
+            } else {
+                resultadoDiv.textContent = "Erro: Não foi possível carregar o resultado.";
+            }
+        </script>
+    </div>
+</body>
+</html>
